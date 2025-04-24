@@ -28,14 +28,19 @@ async def handle_join_request(client: Client, join_request: ChatJoinRequest):
     await client.approve_chat_join_request(chat_id, user_id)
 
     # Prepare an inline keyboard
-    keyboard = InlineKeyboardMarkup(
-        [[InlineKeyboardButton("Visit Channel", url=f"https://t.me/Syd_XyZ")]]
+    syd = InlineKeyboardMarkup(
+        [[
+         InlineKeyboardButton("✦ Uᴩᴅᴀᴛᴇꜱ", url=f"https://t.me/bot_Cracker"),
+         InlineKeyboardButton("Cʜᴀɴɴᴇʟ ✦", url=f"https://t.me/Mod_Moviez_X")
+        ],[
+         InlineKeyboardButton("◈ Mᴏʀᴇ ◈", url=f"https://t.me/Instant_Approval_Bot?start=")
+        ]
     )
     try:
         await client.send_message(
             chat_id=user_id,
-            text="Welcome to the channel! Tap below to visit.",
-            reply_markup=keyboard
+            text="Yᴏᴜʀ RᴇQᴜᴇꜱᴛ Tᴏ Jᴏɪɴ Tʜᴇ Cʜᴀᴛ Hᴀꜱ Bᴇᴇɴ Aᴄᴄᴇᴩᴛᴇᴅ Iɴꜱᴛᴀɴᴛʟʏ! 🎍 \nTᴀᴩ Bᴇʟᴏᴡ Bᴜᴛᴛᴏɴ Tᴏ Kɴᴏᴡ Mᴏʀᴇ..! 🕯️",
+            reply_markup=syd
         )
     except Exception as e:
         print(f"Failed to send message to user: {e}")
@@ -55,17 +60,16 @@ async def op(_, m :Message):
             await m.reply("**Make Sure I Am Admin In Your Channel**")
             return 
         key = InlineKeyboardMarkup(
-            [[
                 InlineKeyboardButton("🍿 Join Update Channel 🍿", url=invite_link.invite_link),
                 InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
-            ]]
-        ) 
+             ]]
+         ) 
         await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
         return 
     keyboard = InlineKeyboardMarkup(
         [[
-            InlineKeyboardButton("🗯 Channel", url="https://t.me/vj_botz"),
-            InlineKeyboardButton("💬 Support", url="https://t.me/vj_bot_disscussion")
+            InlineKeyboardButton("✦ Uᴩᴅᴀᴛᴇꜱ", url=f"https://t.me/bot_Cracker"),
+            InlineKeyboardButton("Cʜᴀɴɴᴇʟ ✦", url=f"https://t.me/Mod_Moviez_X")
         ]]
     )
     add_user(m.from_user.id)
@@ -88,7 +92,7 @@ async def chk(_, cb : CallbackQuery):
         ]]
     )
     add_user(m.from_user.id)
-    await cb.edit_text(text="**🦊 Hello {}!\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.\n\n__Powered By : @VJ_Botz __**".format(cb.from_user.mention, "https://t.me/telegram/153"), reply_markup=keyboard)
+    await cb.edit_text(text="**🦊 Hello {}!\nI'm an auto approve [Admin Join Requests]({}) Bot.\nI can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.\n\n__Pᴏᴡᴇʀᴇᴅ Bʏ : @Bot_Cracker __**".format(cb.from_user.mention, "https://t.me/telegram/153"), reply_markup=keyboard)
     
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ info ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
