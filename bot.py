@@ -34,7 +34,7 @@ async def handle_join_request(client: Client, join_request: ChatJoinRequest):
          InlineKeyboardButton("Cʜᴀɴɴᴇʟ ✦", url=f"https://t.me/Mod_Moviez_X")
         ],[
          InlineKeyboardButton("◈ Mᴏʀᴇ ◈", url=f"https://t.me/Instant_Approval_Bot?start=")
-        ]
+        ]]
     )
     try:
         await client.send_message(
