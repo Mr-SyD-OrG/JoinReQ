@@ -183,3 +183,8 @@ async def fcast(_, m : Message):
 
 print("I'm Alive Now!")
 app.run()
+pp = web.AppRunner(await web_server())
+pp.setup()
+web.TCPSite(pp, "0.0.0.0", 8080).start()
+print("Web Response Is Running......🕸️")
+
