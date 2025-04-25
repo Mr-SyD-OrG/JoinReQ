@@ -60,9 +60,10 @@ async def op(_, m :Message):
             await m.reply("**Make Sure I Am Admin In Your Channel**")
             return 
         key = InlineKeyboardMarkup(
+            [
                 InlineKeyboardButton("🍿 Join Update Channel 🍿", url=invite_link.invite_link),
                 InlineKeyboardButton("🍀 Check Again 🍀", callback_data="chk")
-             ]]
+            ]
          ) 
         await m.reply_text("**⚠️Access Denied!⚠️\n\nPlease Join My Update Channel To Use Me.If You Joined The Channel Then Click On Check Again Button To Confirm.**", reply_markup=key)
         return 
