@@ -18,14 +18,7 @@ app = Client(
     bot_token=cfg.BOT_TOKEN,
     plugins={"root": "plugins"}
 )
-from aiohttp import web
-from route import routes
 
-
-def web_server():
-    web_app = web.Application(client_max_size=30000000)
-    web_app.add_routes(routes)
-    return web_app
     
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main process ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
