@@ -20,7 +20,7 @@ from aiohttp import web
 from route import routes
 
 
-async def web_server():
+def web_server():
     web_app = web.Application(client_max_size=30000000)
     web_app.add_routes(routes)
     return web_app
@@ -183,7 +183,7 @@ async def fcast(_, m : Message):
 
 print("I'm Alive Now!")
 app.run()
-pp = web.AppRunner(await web_server())
+pp = web.AppRunner(web_server())
 pp.setup()
 web.TCPSite(pp, "0.0.0.0", 8080).start()
 print("Web Response Is Running......🕸️")
