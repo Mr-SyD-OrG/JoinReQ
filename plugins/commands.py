@@ -7,7 +7,7 @@ from configs import cfg
 import random, asyncio
 
 
-@app.on_chat_join_request()
+@Client.on_chat_join_request()
 async def handle_join_request(client: Client, join_request: ChatJoinRequest):
     user_id = join_request.from_user.id
     chat_id = join_request.chat.id
@@ -37,7 +37,7 @@ async def handle_join_request(client: Client, join_request: ChatJoinRequest):
  
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Start ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_message(filters.private & filters.command("start"))
+@Client.on_message(filters.private & filters.command("start"))
 async def op(_, m :Message):
     try:
         await app.get_chat_member(cfg.CHID, m.from_user.id)
@@ -67,7 +67,7 @@ async def op(_, m :Message):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ callback ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_callback_query(filters.regex("chk"))
+@Client.on_callback_query(filters.regex("chk"))
 async def chk(_, cb : CallbackQuery):
     try:
         await app.get_chat_member(cfg.CHID, cb.from_user.id)
@@ -86,7 +86,7 @@ async def chk(_, cb : CallbackQuery):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ info ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_message(filters.command("users") & filters.user(cfg.SUDO))
+@Client.on_message(filters.command("users") & filters.user(cfg.SUDO))
 async def dbtool(_, m : Message):
     xx = all_users()
     x = all_groups()
@@ -99,7 +99,7 @@ async def dbtool(_, m : Message):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Broadcast ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_message(filters.command("bcast") & filters.user(cfg.SUDO))
+@Client.on_message(filters.command("bcast") & filters.user(cfg.SUDO))
 async def bcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
@@ -131,7 +131,7 @@ async def bcast(_, m : Message):
 
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Broadcast Forward ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-@app.on_message(filters.command("fcast") & filters.user(cfg.SUDO))
+@Client.on_message(filters.command("fcast") & filters.user(cfg.SUDO))
 async def fcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
